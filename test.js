@@ -3,16 +3,31 @@ import { browser } from "k6/browser";
 export const options = {
   scenarios: {
     ui: {
-      executor: "shared-iterations",
+      executor: "ramping-arrival-rate",
       options: {
         browser: {
           type: "chromium",
         },
       },
+
+      startRate: 1,
+      timeUnit: "1s",
+      preAllocatedVUs: 1,
+      maxVUs: 4,
+      stages: [
+        { target: 2, duration: "30s" }, // Ramps up to target load
+        { target: 2, duration: "30s" }, // Holds at target load
+      ],
     },
   },
+  // thresholds: {
+  //   checks: ["rate==1.0"],
+  //   http_req_duration: ["p(95)<1000"], // 95th percntile response time <1000ms
+  //   http_req_failed: ["rate<0.05"], // Error rate <5%
+  // },
   thresholds: {
-    checks: ["rate==1.0"],
+    browser_web_vital_fcp: ["p(95) < 1000"],
+    browser_web_vital_lcp: ["p(95) < 2000"],
   },
 };
 
