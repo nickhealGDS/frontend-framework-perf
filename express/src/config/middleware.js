@@ -6,7 +6,7 @@ const checkSessionAndRedirect = (req, res, next) => {
     req.session.userSession.startedJourney;
 
   // Check if the user is on the homepage
-  const isOnHomepage = req.path === "/welcome";
+  const isOnHomepage = req.path === "/";
 
   // If the user is on the Home Page and does not have a session, set it
   if (isOnHomepage && !hasSession) {

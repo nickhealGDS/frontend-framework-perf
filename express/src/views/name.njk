@@ -1,0 +1,17 @@
+{% extends 'common/base.njk' %} {% set title = 'pages.name.title' %} {%
+from "govuk/components/input/macro.njk" import govukInput %} {% from
+"govuk/components/button/macro.njk" import govukButton %} {% from
+"govuk/components/back-link/macro.njk" import govukBackLink %} {% block backLink
+%} {{ govukBackLink({ text: "general.govuk.backLink" | translate, href:
+"/choose-location" }) }} {% endblock %} {%block content%}
+
+<form method="post" id="nameForm" action="/name">
+  {{ govukInput({ label: { text: "pages.name.content.header" | translate,
+  classes: "govuk-label--l", isPageHeading: true }, id: "enter-email", name:
+  "name", errorMessage: { text:
+  "pages.name.content.errors.validationError" | translate } if showError
+  }) }} {{ govukButton({ text: "general.buttons.continue" | translate, type:
+  "submit" }) }}
+</form>
+
+{%endblock%}

@@ -20,21 +20,17 @@ export default async function () {
   const page = await browser.newPage();
 
   try {
-    // Load the localhost page
     await page.goto("http://localhost:3000");
 
-    // Click the "Continue" button
-    await page.click('button:has-text("Continue")');
+    await page.click("#start");
 
-    // Fill the input with the label "Name" with "Nick"
+    await page.waitForSelector('input[name="name"]', { timeout: 5000 });
     await page.fill('input[name="name"]', "Nick");
+    await page.click('button[type="submit"]');
 
-    // Click the "Submit" button
-    await page.click('button:has-text("Submit")');
-
-    // Verify the page has the header
-    const headerText = await page.textContent("h1");
-    if (headerText !== "Thank you for completing the form") {
+    await page.waitForSelector("#header", { timeout: 5000 });
+    const headerText = await page.textContent("#header");
+    if (headerText !== "Check answers") {
       throw new Error("Header does not match expected text!");
     }
   } finally {

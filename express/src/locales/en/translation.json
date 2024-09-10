@@ -199,12 +199,12 @@
         }
       }
     },
-    "enterEmail": {
-      "title": "Enter Email",
+    "name": {
+      "title": "Enter Name",
       "content": {
-        "header": "Enter your email address",
+        "header": "Enter your name",
         "errors": {
-          "validationError": "Enter your email address"
+          "validationError": "Enter your name"
         }
       }
     },

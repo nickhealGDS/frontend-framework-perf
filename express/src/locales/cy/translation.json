@@ -199,7 +199,7 @@
         }
       }
     },
-    "enterEmail": {
+    "name": {
       "title": "Rhowch eich Cyfeiriad E-bost",
       "content": {
         "header": "Rhowch eich cyfeiriad e-bost",

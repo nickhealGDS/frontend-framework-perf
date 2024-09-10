@@ -12,9 +12,9 @@ organisationTypeHtml %}
 <div id="enterEmailContainer"></div>
 {% endset %} {% from "govuk/components/back-link/macro.njk" import govukBackLink
 %} {% block backLink %} {{ govukBackLink({ text: "general.govuk.backLink" |
-translate, href: "/enter-email" }) }} {% endblock %} {% block content %}
+translate, href: "/name" }) }} {% endblock %} {% block content %}
 
-<h1 class="govuk-heading-l govuk-!-margin-bottom-5">Check answers</h1>
+<h1 id="header" class="govuk-heading-l govuk-!-margin-bottom-5">Check answers</h1>
 
 {{ govukSummaryList({ classes: "govuk-summary-list__row--no-actions", fieldset:
 { legend: { text: "pages.summaryPage.content.header" | translate, isPageHeading:

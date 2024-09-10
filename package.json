@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "test.js",
   "scripts": {
+    "test:dev": "K6_BROWSER_HEADLESS=false k6 run test.js",
     "test": "k6 run test.js"
   },
   "author": "",
