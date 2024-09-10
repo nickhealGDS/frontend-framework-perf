@@ -1,0 +1,11 @@
+{
+  "name": "k6-browser-test",
+  "version": "1.0.0",
+  "main": "test.js",
+  "scripts": {
+    "test": "k6 run test.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
