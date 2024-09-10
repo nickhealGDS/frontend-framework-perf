@@ -45,8 +45,8 @@ export default async function () {
 
     await page.waitForSelector("#header", { timeout: 5000 });
     const headerText = await page.textContent("#header");
-    if (headerText !== "Check answers") {
-      throw new Error("Header does not match expected text!");
+    if (!headerText.includes("Check answers")) {
+      throw new Error(`Header ${headerText} does not match expected text!`);
     }
   } finally {
     await page.close();

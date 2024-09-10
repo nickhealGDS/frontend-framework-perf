@@ -2,12 +2,32 @@
 
 > This package requires K6 to be installed.
 
-## express
+Start up one of the service versions below.
 
-To run the express variation:
+run `npm run test` to start the k6 tests.
+
+## astro
+
+```
+cd ./astro
+npm ci
+npm run build
+npm run preview
+```
+
+## express
 
 ```
 cd ./express
 npm ci
 npm run dev
+```
+
+## sveltekit
+
+```
+cd ./sveltekit
+npm ci
+npm run build
+npm run preview
 ```
