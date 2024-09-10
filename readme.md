@@ -23,6 +23,15 @@ npm ci
 npm run dev
 ```
 
+## remix
+
+```
+cd ./remix
+npm ci
+npm run build
+npm run start
+```
+
 ## sveltekit
 
 ```

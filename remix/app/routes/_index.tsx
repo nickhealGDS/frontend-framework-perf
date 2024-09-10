@@ -1,0 +1,175 @@
+import type { MetaFunction } from "@remix-run/node";
+import { Link } from "@remix-run/react";
+
+export const meta: MetaFunction = () => {
+  return [
+    { title: "New Remix App" },
+    { name: "description", content: "Welcome to Remix!" },
+  ];
+};
+
+export default function Index() {
+  return (
+    <div className="govuk-grid-row">
+      <div className="govuk-grid-column-two-thirds">
+        <h1 className="govuk-heading-xl">Using your GOV.UK One Login</h1>
+        <aside>
+          <nav>
+            <h2 className="govuk-heading-m">Contents</h2>
+            <ol className="govuk-list govuk-list--number">
+              <li>Sign in to your GOV.UK One Login</li>
+              <li>
+                <a href="/service-description" className="govuk-link">
+                  Test Inbound Link
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://apps.apple.com/gb/app/gov-uk-id-check/id1629050566"
+                  className="govuk-link"
+                >
+                  Test Outbound link
+                </a>
+              </li>
+            </ol>
+          </nav>
+        </aside>
+        <hr className="govuk-section-break govuk-section-break--m govuk-section-break--visible" />
+
+        <h1 className="govuk-heading-l">Sign in to your GOV.UK One Login</h1>
+        <p className="govuk-body">
+          You can use your GOV.UK One Login to access some government services.
+        </p>
+        <p className="govuk-body">
+          It does not work with all{" "}
+          <a href="#" className="govuk-link">
+            government accounts and services
+          </a>{" "}
+          yet (for example Government Gateway or Universal Credit)
+        </p>
+        <p className="govuk-body">
+          In the future, you'll be able to use your GOV.UK One Login to access
+          all services on GOV.UK.
+        </p>
+        <p className="govuk-body">
+          See the{" "}
+          <a href="#" className="govuk-link">
+            services you can use with GOV.UK One Login.
+          </a>
+        </p>
+        <div className="govuk-inset-text">
+          If you need a GOV.UK One Login to use a service, and you do not
+          already have one, you'll be able to create one when you first use that
+          service.
+        </div>
+
+        <p className="govuk-body">Sign in to:</p>
+        <ul className="govuk-list govuk-list--bullet">
+          <li>
+            change your sign in details (email address, password or how you get
+            security codes)
+          </li>
+          <li>
+            see and access the services you've used with your GOV.UK One Login
+          </li>
+          <li>delete your GOV.UK One Login</li>
+        </ul>
+        <details className="govuk-details">
+          <summary className="govuk-details__summary">
+            <span className="govuk-details__summary-text">
+              First Details Component
+            </span>
+          </summary>
+          <div className="govuk-details__text">
+            We need to know your nationality so we can work out which elections
+            you’re entitled to vote in. If you cannot provide your nationality,
+            you’ll have to send copies of identity documents through the post.
+          </div>
+        </details>
+        <details className="govuk-details">
+          <summary className="govuk-details__summary">
+            <span className="govuk-details__summary-text">
+              Second Details Component
+            </span>
+          </summary>
+          <div className="govuk-details__text">
+            We need to know your nationality so we can work out which elections
+            you’re entitled to vote in. If you cannot provide your nationality,
+            you’ll have to send copies of identity documents through the post.
+          </div>
+        </details>
+
+        <Link
+          to="/name"
+          role="button"
+          draggable="false"
+          className="govuk-button govuk-button--start"
+          data-module="govuk-button"
+          id="start"
+        >
+          Start Now
+          <svg
+            className="govuk-button__start-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="17.5"
+            height="19"
+            viewBox="0 0 33 40"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <path fill="currentColor" d="M0 0h13l20 20-20 20H0l20-20z"></path>
+          </svg>
+        </Link>
+
+        <h2 className="govuk-heading-m">Report a problem or give feedback</h2>
+        <p className="govuk-body">
+          To report a problem with your GOV.UK One Login or give feedback,
+          <a href="/feedback" className="govuk-link">
+            contact the GOV.UK One Login team
+          </a>
+          .
+        </p>
+
+        <nav
+          className="govuk-pagination govuk-pagination--block"
+          role="navigation"
+          aria-label="results"
+        >
+          <div className="govuk-pagination__next">
+            <a
+              className="govuk-link govuk-pagination__link"
+              href="#"
+              rel="next"
+            >
+              <svg
+                className="govuk-pagination__icon govuk-pagination__icon--next"
+                xmlns="http://www.w3.org/2000/svg"
+                height="13"
+                width="15"
+                aria-hidden="true"
+                focusable="false"
+                viewBox="0 0 15 13"
+              >
+                <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
+              </svg>
+              <span className="govuk-pagination__link-title">Next</span>
+              <span className="govuk-visually-hidden">:</span>
+              <span className="govuk-pagination__link-label">
+                Services you can use with GOV.UK One Login
+              </span>
+            </a>
+          </div>
+        </nav>
+
+        <div>
+          <a
+            href="#"
+            className="govuk-link govuk-link--no-visited-state govuk-body"
+          >
+            View a printable version of the whole guide
+          </a>
+        </div>
+      </div>
+    </div>
+  );
+}
