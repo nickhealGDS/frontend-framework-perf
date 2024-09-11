@@ -23,6 +23,14 @@ npm ci
 npm run dev
 ```
 
+## nextjs
+
+TODO:
+
+## react
+
+TODO:
+
 ## remix
 
 ```
