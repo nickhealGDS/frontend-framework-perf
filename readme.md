@@ -25,11 +25,12 @@ npm run dev
 
 ## nextjs
 
-TODO:
-
-## react
-
-TODO:
+```
+cd ./nextjs
+npm ci
+npm run build
+npm run start
+```
 
 ## remix
 

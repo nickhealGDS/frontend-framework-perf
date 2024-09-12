@@ -40,8 +40,8 @@ export default function Home() {
           yet (for example Government Gateway or Universal Credit)
         </p>
         <p className="govuk-body">
-          In the future, you'll be able to use your GOV.UK One Login to access
-          all services on GOV.UK.
+          In the future, you&lsquo;ll be able to use your GOV.UK One Login to
+          access all services on GOV.UK.
         </p>
         <p className="govuk-body">
           See the{" "}
@@ -51,8 +51,8 @@ export default function Home() {
         </p>
         <div className="govuk-inset-text">
           If you need a GOV.UK One Login to use a service, and you do not
-          already have one, you'll be able to create one when you first use that
-          service.
+          already have one, you&lsquo;ll be able to create one when you first
+          use that service.
         </div>
 
         <p className="govuk-body">Sign in to:</p>
@@ -62,7 +62,8 @@ export default function Home() {
             security codes)
           </li>
           <li>
-            see and access the services you've used with your GOV.UK One Login
+            see and access the services you&lsquo;ve used with your GOV.UK One
+            Login
           </li>
           <li>delete your GOV.UK One Login</li>
         </ul>
@@ -74,8 +75,9 @@ export default function Home() {
           </summary>
           <div className="govuk-details__text">
             We need to know your nationality so we can work out which elections
-            you’re entitled to vote in. If you cannot provide your nationality,
-            you’ll have to send copies of identity documents through the post.
+            you&lsquo;re entitled to vote in. If you cannot provide your
+            nationality, you&lsquo;ll have to send copies of identity documents
+            through the post.
           </div>
         </details>
         <details className="govuk-details">
@@ -86,8 +88,9 @@ export default function Home() {
           </summary>
           <div className="govuk-details__text">
             We need to know your nationality so we can work out which elections
-            you’re entitled to vote in. If you cannot provide your nationality,
-            you’ll have to send copies of identity documents through the post.
+            you&lsquo;re entitled to vote in. If you cannot provide your
+            nationality, you&lsquo;ll have to send copies of identity documents
+            through the post.
           </div>
         </details>
 
