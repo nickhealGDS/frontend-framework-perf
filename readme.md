@@ -49,3 +49,18 @@ npm ci
 npm run build
 npm run preview
 ```
+
+## vue-express
+
+```
+cd ./vue-express/be
+npm ci
+npm run start
+```
+
+```
+cd ./vue-express/ui
+npm ci
+npm run build
+npm run preview
+```
