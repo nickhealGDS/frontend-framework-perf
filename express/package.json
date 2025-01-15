@@ -4,7 +4,7 @@
     "start": "npm-run-all build-sass --parallel dev gulp-watch",
     "dev": "node --watch src/app.js",
     "build-sass": "rm -rf public/style.css && sass --no-source-map public/stylesheets/application.css --style compressed",
-    "gulp-watch": "gulp watch",
+    "gulp-watch": "gulp",
     "format": "npx eslint src/**/*.js --fix",
     "serve": "nodemon serve"
   },

@@ -20,11 +20,6 @@ export const options = {
       ],
     },
   },
-  // thresholds: {
-  //   checks: ["rate==1.0"],
-  //   http_req_duration: ["p(95)<1000"], // 95th percntile response time <1000ms
-  //   http_req_failed: ["rate<0.05"], // Error rate <5%
-  // },
   thresholds: {
     browser_web_vital_fcp: ["p(95) < 1000"],
     browser_web_vital_lcp: ["p(95) < 2000"],
