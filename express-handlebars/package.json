@@ -2,7 +2,7 @@
   "name": "@govuk-one-login/alpha-app",
   "scripts": {
     "dev": "npm-run-all build-sass --parallel start gulp-watch",
-    "start": "node src/app.js",
+    "start": "export NODE_ENV=production && node src/app.js",
     "build-sass": "rm -rf public/style.css && sass --no-source-map public/stylesheets/application.css --style compressed",
     "gulp-watch": "gulp watch",
     "format": "npx eslint src/**/*.js --fix",
@@ -13,6 +13,7 @@
     "@govuk-one-login/one-login-analytics": "^0.0.10",
     "dotenv": "^16.4.5",
     "express": "^4.20.0",
+    "express-handlebars": "^8.0.1",
     "govuk-frontend": "^4.8.0",
     "govuk-prototype-kit": "13.16.2",
     "i18next": "^23.15.1",
