@@ -1,9 +1,9 @@
-export default function Summary() {
+export default async function Summary() {
   return (
     <div className="govuk-grid-row">
       <div className="govuk-grid-column-two-thirds">
         <h1 id="header" className="govuk-heading-l govuk-!-margin-bottom-5">
-          Check answers
+          Welcome, ... Check answers
         </h1>
 
         <dl className="govuk-summary-list govuk-summary-list__row--no-actions">

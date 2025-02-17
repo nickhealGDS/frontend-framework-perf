@@ -30,8 +30,8 @@ export const options = {
       preAllocatedVUs: 1,
       maxVUs: 100,
       stages: [
-        { target: 500, duration: "120s" }, // Ramps up to target load
-        { target: 500, duration: "120s" }, // Holds at target load
+        { target: 2000, duration: "120s" }, // Ramps up to target load
+        { target: 2000, duration: "120s" }, // Holds at target load
       ],
     },
   },
