@@ -1,9 +1,13 @@
+import { getSession } from "@/utils/session";
+
 export default async function Summary() {
+  const session = await getSession();
+
   return (
     <div className="govuk-grid-row">
       <div className="govuk-grid-column-two-thirds">
         <h1 id="header" className="govuk-heading-l govuk-!-margin-bottom-5">
-          Welcome, ... Check answers
+          Welcome {session?.name}, Check answers
         </h1>
 
         <dl className="govuk-summary-list govuk-summary-list__row--no-actions">
