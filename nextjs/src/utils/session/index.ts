@@ -1,5 +1,4 @@
 import { cookies } from "next/headers";
-import { inmem } from "./inmem";
 import { redis } from "./redis";
 
 export interface Session {
@@ -15,8 +14,6 @@ function getSessionImpl() {
   switch (sessionImpl) {
     case "redis":
       return redis;
-    case "inmem":
-      return inmem;
     default:
       throw new Error(`No session implementation for ${sessionImpl}.`);
   }
