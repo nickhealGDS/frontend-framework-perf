@@ -1,5 +1,6 @@
 import Form from "next/form";
 import { submitName } from "./actions";
+import Button from "../components/Button";
 
 export default function Name() {
   return (
@@ -24,13 +25,13 @@ export default function Name() {
             />
           </div>
 
-          <button
+          <Button
             type="submit"
             className="govuk-button"
             data-module="govuk-button"
           >
             Continue
-          </button>
+          </Button>
         </Form>
       </div>
     </div>

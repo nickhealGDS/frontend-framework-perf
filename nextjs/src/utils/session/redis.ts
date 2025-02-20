@@ -1,23 +1,26 @@
 import { Resource } from "sst";
-import { Cluster } from "ioredis";
+import Redis, { Cluster } from "ioredis";
 import { v4 as uuidv4 } from "uuid";
 import { Session } from ".";
 
-const client = new Cluster(
-  [
-    {
-      host: Resource.SessionStore.host,
-      port: Resource.SessionStore.port,
-    },
-  ],
-  {
-    redisOptions: {
-      tls: { checkServerIdentity: () => undefined },
-      username: Resource.SessionStore.username,
-      password: Resource.SessionStore.password,
-    },
-  }
-);
+const client =
+  process.env.NODE_ENV === "production"
+    ? new Cluster(
+        [
+          {
+            host: Resource.SessionStore.host,
+            port: Resource.SessionStore.port,
+          },
+        ],
+        {
+          redisOptions: {
+            tls: { checkServerIdentity: () => undefined },
+            username: Resource.SessionStore.username,
+            password: Resource.SessionStore.password,
+          },
+        }
+      )
+    : new Redis();
 
 export const redis: Session = {
   async create() {
