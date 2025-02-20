@@ -16,8 +16,8 @@ export default $config({
     };
   },
   async run() {
-    const vpc = new sst.aws.Vpc("PTNextVPC", { bastion: true });
-    new sst.aws.Redis("SessionStore", { vpc });
-    new sst.aws.Nextjs("MyWeb", { vpc });
+    const vpc = new sst.aws.Vpc("PTNextVPC", { bastion: true, nat: "ec2" });
+    const SessionStore = new sst.aws.Redis("SessionStore", { vpc });
+    new sst.aws.Nextjs("MyWeb", { link: [SessionStore], vpc });
   },
 });

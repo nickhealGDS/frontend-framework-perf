@@ -1,16 +1,23 @@
 import { Resource } from "sst";
-import { createClient } from "redis";
+import { Cluster } from "ioredis";
 import { v4 as uuidv4 } from "uuid";
 import { Session } from ".";
 
-const client = await createClient({
-  url:
-    process.env.NODE_ENV === "development"
-      ? "redis://localhost:6379"
-      : `redis://${Resource.SessionStore.username}:${Resource.SessionStore.password}@${Resource.SessionStore.host}:${Resource.SessionStore.port}`,
-})
-  .on("error", (err) => console.log("Redis Client Error", err))
-  .connect();
+const client = new Cluster(
+  [
+    {
+      host: Resource.SessionStore.host,
+      port: Resource.SessionStore.port,
+    },
+  ],
+  {
+    redisOptions: {
+      tls: { checkServerIdentity: () => undefined },
+      username: Resource.SessionStore.username,
+      password: Resource.SessionStore.password,
+    },
+  }
+);
 
 export const redis: Session = {
   async create() {
@@ -19,15 +26,13 @@ export const redis: Session = {
     return sessionId;
   },
 
-  async delete(sessionId: string) {
-    // delete db[sessionId];
-  },
+  async delete() {},
 
   async get(sessionId: string) {
     return JSON.parse((await client.get(sessionId)) ?? "{}");
   },
 
-  async update(sessionId: string, data: {}) {
+  async update(sessionId: string, data: { [key: string]: string }) {
     await client.set(sessionId, JSON.stringify(data));
     return data;
   },

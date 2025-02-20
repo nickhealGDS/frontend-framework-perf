@@ -1,25 +1,16 @@
 import { cookies } from "next/headers";
 import { redis } from "./redis";
 
+type Store = { [key: string]: string };
+
 export interface Session {
   create: () => Promise<string>;
   delete: (sessionId: string) => Promise<void>;
-  get: (sessionId: string) => Promise<{}>;
-  update: (sessionId: string, data: {}) => Promise<{}>;
+  get: (sessionId: string) => Promise<Store>;
+  update: (sessionId: string, data: Store) => Promise<Store>;
 }
 
-const sessionImpl = process.env.SESSION_IMPL;
-
-function getSessionImpl() {
-  switch (sessionImpl) {
-    case "redis":
-      return redis;
-    default:
-      throw new Error(`No session implementation for ${sessionImpl}.`);
-  }
-}
-
-const session = getSessionImpl();
+const session = redis;
 
 async function getSessionId() {
   const cookieStore = await cookies();
@@ -34,12 +25,12 @@ async function getSessionId() {
   return reqSessionId.value;
 }
 
-export async function getSession() {
+export async function getSession(): Promise<Store> {
   const sessionId = await getSessionId();
   return session.get(sessionId);
 }
 
-export async function updateSession(data: {}) {
+export async function updateSession(data: Store) {
   const sessionId = await getSessionId();
   return session.update(sessionId, data);
 }
