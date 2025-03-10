@@ -1,5 +1,7 @@
 import { browser } from "k6/browser";
 
+const url = process.env.URL || "http://localhost:3000";
+
 export const options = {
   scenarios: {
     ui: {
@@ -30,7 +32,7 @@ export default async function () {
   const page = await browser.newPage();
 
   try {
-    await page.goto("http://localhost:3000");
+    await page.goto(url);
 
     await page.click("#start");
 

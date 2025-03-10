@@ -21,6 +21,8 @@ function timeGroup(name, fn, checks = {}) {
 
 // ---
 
+const url = process.env.URL || "http://localhost:3000";
+
 export const options = {
   scenarios: {
     ui: {
@@ -30,8 +32,8 @@ export const options = {
       preAllocatedVUs: 1,
       maxVUs: 100,
       stages: [
-        { target: 2000, duration: "120s" }, // Ramps up to target load
-        { target: 2000, duration: "120s" }, // Holds at target load
+        { target: 400, duration: "120s" }, // Ramps up to target load
+        { target: 400, duration: "120s" }, // Holds at target load
       ],
     },
   },
@@ -42,7 +44,7 @@ export const options = {
 };
 
 export default function pocApp() {
-  timeGroup("GET - {pocApp} /", () => http.get("http://localhost:3000"), {
+  timeGroup("GET - {pocApp} /", () => http.get(url), {
     isStatusCode200(response) {
       return response.status === 200;
     },

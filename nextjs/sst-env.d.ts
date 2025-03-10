@@ -5,21 +5,6 @@
 
 declare module "sst" {
   export interface Resource {
-    "MyWeb": {
-      "type": "sst.aws.Nextjs"
-      "url": string
-    }
-    "PTNextVPC": {
-      "bastion": string
-      "type": "sst.aws.Vpc"
-    }
-    "SessionStore": {
-      "host": string
-      "password": string
-      "port": number
-      "type": "sst.aws.Redis"
-      "username": string
-    }
   }
 }
 /// <reference path="sst-env.d.ts" />

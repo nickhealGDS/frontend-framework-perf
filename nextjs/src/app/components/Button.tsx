@@ -1,11 +1,8 @@
 "use client";
+import { type ComponentProps } from "react";
 import { useFormStatus } from "react-dom";
 
-type TButtonProps = Readonly<{
-  children: React.ReactNode;
-}>;
-
-export default function SearchButton({ ...rest }: TButtonProps) {
+export default function SearchButton({ ...rest }: ComponentProps<"button">) {
   const status = useFormStatus();
 
   return (
